@@ -12,8 +12,8 @@ namespace Web.Controllers
 
         public JsonResult List()
         {
-            Get list = new Get();
-            return Json(list.List());
+            GetAllTypeRoom typeRooms = new GetAllTypeRoom();
+            return Json(typeRooms.List());
         }
     }
 }

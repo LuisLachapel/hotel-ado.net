@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\Scripts\generic.js" />
+    <None Include="wwwroot\Scripts\TypeRoom\TypeRoom.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Persistence\Persistence.csproj" />
   </ItemGroup>
 

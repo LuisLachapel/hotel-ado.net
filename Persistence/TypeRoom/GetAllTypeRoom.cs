@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace Persistence.TypeRoom
 {
-    public class Get: DBConnection
+    public class GetAllTypeRoom: DBConnection
     {
         public List<Entity.TypeRoom> List()
         {
