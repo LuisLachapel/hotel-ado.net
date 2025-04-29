@@ -1,7 +1,7 @@
 ﻿
 namespace Entity
 {
-    public class TypeRoom
+    public class Category
     {
         public int id { get; set; }
         public string name { get; set; }

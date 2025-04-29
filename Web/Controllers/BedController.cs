@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Persistence.TypeRoom;
+using Persistence.Bed;
 
 namespace Web.Controllers
 {
-    public class TypeRoomController : Controller
+    public class BedController : Controller
     {
         public ActionResult Index()
         {
@@ -12,8 +12,9 @@ namespace Web.Controllers
 
         public JsonResult List()
         {
-            GetAllTypeRoom typeRooms = new GetAllTypeRoom();
-            return Json(typeRooms.List());
+            GetAll beds = new GetAll();
+            return Json(beds.List());
         }
+
     }
 }

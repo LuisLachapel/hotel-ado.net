@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
 
 
@@ -11,9 +6,9 @@ namespace Persistence.TypeRoom
 {
     public class GetAllTypeRoom: DBConnection
     {
-        public List<Entity.TypeRoom> List()
+        public List<Entity.RoomType> List()
         {
-            List<Entity.TypeRoom> typeRooms = new List<Entity.TypeRoom>();
+            List<Entity.RoomType> typeRooms = new List<Entity.RoomType>();
             using(SqlConnection connection = new SqlConnection(db_connection))
             {
                 try
@@ -33,7 +28,7 @@ namespace Persistence.TypeRoom
 
                             while (reader.Read())
                             {
-                                Entity.TypeRoom typeRoom = typeRoom = new Entity.TypeRoom();
+                                Entity.RoomType typeRoom = typeRoom = new Entity.RoomType();
                                 typeRoom.id = reader.GetInt32(fieldId);
                                 typeRoom.name = reader.GetString(fieldName);
                                 typeRoom.description = reader.GetString(fieldDescription);

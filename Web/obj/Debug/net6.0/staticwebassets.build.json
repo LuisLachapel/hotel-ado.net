@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wC1iYY9sX25g4GG3jh9epBjVlfToR1UZ3goxKzUr/0A=",
+  "Hash": "aok3GcCzojUHvdb8MxZnZGls2PdkW1cutn/5PYjl6bw=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1071,6 +1071,23 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Bed\\Bed.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Scripts/Bed/Bed.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\Bed\\Bed.js"
+    },
+    {
       "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\generic.js",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -1088,12 +1105,12 @@
       "OriginalItemSpec": "wwwroot\\Scripts\\generic.js"
     },
     {
-      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\TypeRoom\\TypeRoom.js",
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\RoomType\\RoomType.js",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "Scripts/TypeRoom/TypeRoom.js",
+      "RelativePath": "Scripts/RoomType/RoomType.js",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1102,7 +1119,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\Scripts\\TypeRoom\\TypeRoom.js"
+      "OriginalItemSpec": "wwwroot\\Scripts\\RoomType\\RoomType.js"
     }
   ]
 }

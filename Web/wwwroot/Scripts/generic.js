@@ -5,21 +5,18 @@
 
             var content = "<table class='table'>"
             content += "<tr>"
-            for (var header = 0; header < parameters.headers.length; header++) {
-                content += "<th>" + parameters.headers[header] + "</th>"
-            }
+            parameters.headers.forEach(header => {
+                content += `<th>${header}</th>`
+            })
             content += "</tr>"
-            var row;
-            var currentProperty;
-            for (var element = 0; element < res.length; element++) {
-                row = res[element];
-                content += "<tr>";
-                for (var property = 0; property < parameters.properties.length; property++) {
-                    currentProperty = parameters.properties[property];
-                    content += "<td>" + row[currentProperty] + "</td>"
-                }
-                content += "</tr>";
-            }
+            
+            res.forEach(row => {
+                content += "<tr>"
+                parameters.properties.forEach(element => {
+                    content += `<td>${row[element]}</td>`
+                })
+                content += "<tr>"
+            })
 
             content += "</table>"
             document.getElementById(parameters.id).innerHTML = content;

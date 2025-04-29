@@ -22,11 +22,11 @@
                 <ul class="nav flex-column p-3">
                     <li class="nav-item">
 
-                        @Html.ActionLink("Tipo de habitación", "Index", "TypeRoom", new { area = "" }, new {@class = " nav-link js-scroll-trigger" })
+                        @Html.ActionLink("Tipo de habitación", "Index", "RoomType", new { area = "" }, new {@class = " nav-link js-scroll-trigger" })
                         <!-- <a class="nav-link text-white" href="#">Home</a>-->
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">Menu</a>
+                        @Html.ActionLink("Cama", "Index", "Bed", new {area = ""}, new{@class = "nav-link js-scroll-trigger"})
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="#">Contacts</a>
