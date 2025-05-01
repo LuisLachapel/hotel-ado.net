@@ -2,13 +2,13 @@
 using System.Data.SqlClient;
 
 
-namespace Persistence.TypeRoom
+namespace Persistence.RoomType
 {
-    public class GetAllTypeRoom: DBConnection
+    public class GetAll: DBConnection
     {
         public List<Entity.RoomType> List()
         {
-            List<Entity.RoomType> typeRooms = new List<Entity.RoomType>();
+            List<Entity.RoomType> roomstype = new List<Entity.RoomType>();
             using(SqlConnection connection = new SqlConnection(db_connection))
             {
                 try
@@ -29,10 +29,10 @@ namespace Persistence.TypeRoom
                             while (reader.Read())
                             {
                                 Entity.RoomType typeRoom = typeRoom = new Entity.RoomType();
-                                typeRoom.id = reader.GetInt32(fieldId);
-                                typeRoom.name = reader.GetString(fieldName);
-                                typeRoom.description = reader.GetString(fieldDescription);
-                                typeRooms.Add(typeRoom);
+                                typeRoom.id = reader.IsDBNull(fieldId) ? 0: reader.GetInt32(fieldId);
+                                typeRoom.name = reader.IsDBNull(fieldName) ? "": reader.GetString(fieldName);
+                                typeRoom.description = reader.IsDBNull(fieldDescription) ? "":  reader.GetString(fieldDescription);
+                                roomstype.Add(typeRoom);
                             }
                         }
 
@@ -47,7 +47,7 @@ namespace Persistence.TypeRoom
                 }
 
             }
-            return typeRooms;
+            return roomstype;
 
         }
     }

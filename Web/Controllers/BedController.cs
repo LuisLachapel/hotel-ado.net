@@ -16,5 +16,11 @@ namespace Web.Controllers
             return Json(beds.List());
         }
 
+        public JsonResult FilterBeds(string parameter)
+        {
+            Filter beds = new Filter();
+            return Json(beds.FilterBeds(parameter));
+        }
+
     }
 }

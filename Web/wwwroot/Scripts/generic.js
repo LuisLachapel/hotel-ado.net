@@ -1,4 +1,8 @@
-﻿function CreateTable(parameters) {
+﻿const getValue = (parameter) => {
+    return document.getElementById(parameter).value;
+}
+
+function CreateTable(parameters) {
     fetch(parameters.url)
         .then(res => res.json())
         .then(res => {

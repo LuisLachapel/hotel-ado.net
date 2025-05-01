@@ -12,3 +12,14 @@ function BedList() {
        
     })
 }
+
+function Search() {
+    var bed = getValue("txtBed");
+    CreateTable({
+        url: `Bed/FilterBeds/?parameter=${bed}`,
+        id: "table-bed",
+        headers: ["id", "nombre", "descripción"],
+        properties: ["id", "name", "description"]
+
+    })
+}

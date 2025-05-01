@@ -27,9 +27,9 @@ namespace Persistence.RoomType
                             while (reader.Read())
                             {
                                 Entity.RoomType roomType = new Entity.RoomType();
-                                roomType.id = reader.GetInt32(fieldId);
-                                roomType.name = reader.GetString(fieldName);
-                                roomType.description = reader.GetString(fieldDescription);
+                                roomType.id = reader.IsDBNull(fieldId) ? 0: reader.GetInt32(fieldId);
+                                roomType.name = reader.IsDBNull(fieldName) ? "": reader.GetString(fieldName);
+                                roomType.description = reader.IsDBNull(fieldDescription) ? "": reader.GetString(fieldDescription);
                                 roomTypes.Add(roomType);
                             }
                         }

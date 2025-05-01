@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Persistence.TypeRoom;
+using Persistence.RoomType;
 
 namespace Web.Controllers
 {
@@ -12,8 +12,15 @@ namespace Web.Controllers
 
         public JsonResult List()
         {
-            GetAllTypeRoom Roomstype = new GetAllTypeRoom();
+            GetAll Roomstype = new GetAll();
             return Json(Roomstype.List());
+        }
+
+        // Url para el metodo de filtrado:https://localhost:7049/RoomType/FilterRoomType/?parameter=i
+        public JsonResult FilterRoomType(string parameter)
+        {
+            Filter filter = new Filter();
+            return Json(filter.FilterRoomType(parameter));
         }
     }
 }
