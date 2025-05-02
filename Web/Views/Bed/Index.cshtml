@@ -1,17 +1,14 @@
 ﻿@{
-	ViewBag.title = "Index";
+    ViewBag.Title = "Listado de camas";
 }
 
 <h2>Listado de camas</h2>
 
-<div class="input-group mb-3">
-  
-  <input type="text" id="txtBed" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-  <button class="btn btn-outline-secondary" type="button" id="btnBed" onclick="Search()">Buscar</button>
-</div>
+<!-- Div exclusivo para el buscador de camas -->
+<div id="search-bed"></div>
 
+<!-- Div exclusivo para la tabla de camas -->
 <div id="table-bed"></div>
-
 
 <script src="~/Scripts/generic.js"></script>
 <script src="~/Scripts/Bed/Bed.js"></script>

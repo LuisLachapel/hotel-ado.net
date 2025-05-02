@@ -8,17 +8,10 @@ function RoomTypeList() {
         id: "table-roomtype",
         headers: ["id", "nombre", "descripción"],
         properties: ["id", "name", "description"]
-    })
-} 
-
-
-function Search() {
-    var roomTypeName = getValue("txtRoomType");
-    CreateTable({
-        url: `RoomType/FilterRoomType/?parameter=${roomTypeName}`,
-        id: "table-roomtype",
-        headers: ["id", "nombre", "descripción"],
-        properties: ["id", "name", "description"]
-    })
-   
+    }, {
+        search: true,
+        input_txt: "txtRoomType",
+        container_id: "search-roomtype", // NUEVO: ID donde irá el buscador
+        custom_search_url: (value) => `RoomType/FilterRoomType/?parameter=${value}`
+    });
 }
