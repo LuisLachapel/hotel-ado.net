@@ -4,7 +4,9 @@ namespace Persistence
 {
     public class DBConnection
     {
-        public string db_connection { get; set; }
+        //Declarado como protected para evitar acceso a la db
+        protected string db_connection { get; set; } // ✅
+
 
         public DBConnection()
         {

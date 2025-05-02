@@ -23,7 +23,7 @@ function buildTable(data, parameters) {
 
     content += "</table>";
 
-    // Ahora solo reemplaza el contenido de la tabla, no del buscador
+    // solo reemplaza el contenido de la tabla, no del buscador
     document.getElementById(parameters.id).innerHTML = content;
 }
 
