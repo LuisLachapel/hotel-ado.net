@@ -12,6 +12,7 @@ function ProductList() {
         search: true,
         input_txt: "txtProduct",
         container_id: "search-product",
+        custom_search_url: (value) => `Product/FilterProduct/?parameter=${value}`
         
     })
 }

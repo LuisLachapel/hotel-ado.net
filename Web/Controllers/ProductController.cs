@@ -15,5 +15,10 @@ namespace Web.Controllers
             GetAll products = new GetAll();
             return Json(products.List());
         }
+        public JsonResult FilterProduct(string parameter)
+        {
+            Filter products = new Filter();
+            return Json(products.FilterProducts(parameter));
+        }
     }
 }

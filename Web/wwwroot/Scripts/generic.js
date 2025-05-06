@@ -40,8 +40,15 @@ function CreateTable(parameters, searchConfig = null) {
         </div>
     `;
         document.getElementById(searchConfig.container_id).innerHTML = searchHTML;
-    }
 
+        // Agrega evento para Enter
+        const inputElement = document.getElementById(searchConfig.input_txt);
+        inputElement.addEventListener("keyup", function (event) {
+            if (event.key === "Enter") {
+                PerformSearch();
+            }
+        });
+    }
 
     fetch(parameters.url)
         .then(res => res.json())
@@ -50,8 +57,7 @@ function CreateTable(parameters, searchConfig = null) {
         });
 }
 
-
-//Se encarga de realizar la busqueda
+// Se encarga de realizar la búsqueda
 function PerformSearch() {
     const searchValue = getValue(globalSearchConfig.input_txt);
 
