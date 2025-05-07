@@ -8722,6 +8722,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Entity >= 1.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.18",
       "Persistence >= 1.0.0"
     ]
@@ -8758,6 +8759,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Entity\\Entity.csproj": {
+              "projectPath": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Entity\\Entity.csproj"
+            },
             "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Persistence\\Persistence.csproj": {
               "projectPath": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Persistence\\Persistence.csproj"
             }

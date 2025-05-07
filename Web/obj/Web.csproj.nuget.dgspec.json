@@ -162,6 +162,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Entity\\Entity.csproj": {
+                "projectPath": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Entity\\Entity.csproj"
+              },
               "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Persistence\\Persistence.csproj": {
                 "projectPath": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Persistence\\Persistence.csproj"
               }

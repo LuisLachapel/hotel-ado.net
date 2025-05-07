@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "Web/1.0.0": {
         "dependencies": {
+          "Entity": "1.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.18",
           "Persistence": "1.0.0"
         },

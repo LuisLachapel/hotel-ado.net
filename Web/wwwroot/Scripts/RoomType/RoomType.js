@@ -15,3 +15,16 @@ function RoomTypeList() {
         custom_search_url: (value) => `RoomType/FilterRoomType/?parameter=${value}`
     });
 }
+
+
+function SaveData() {
+    var data = document.getElementById("formRoomtype");
+    var form = new FormData(data);
+    fetch("RoomType/SaveData", {
+        method: "POST",
+        body: form
+    }).then(res => res.text())
+        .then(res => {
+            location.reload();
+        })
+}

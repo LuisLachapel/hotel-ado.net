@@ -4,11 +4,42 @@
 
 <h2>Tipo de habitación</h2>
 
+<div class="container">
+    <fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de tipo de habitación</legend>
+    <form id="formRoomtype" method="post">
+        <!--Campo para id-->
+        <div class="mb-3">
+           <label for="formId" class="form-label">Id</label>
+           <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+        </div>
+
+        <!--Campo para nombre-->
+        <div class="mb-3">
+           <label for="formName" class="form-label">Nombre</label>
+           <input type="text" class="form-control" id="formName" name="name" aria-describedby="">
+        </div>
+
+         <!--Campo para descripción-->
+        <div class="mb-3">
+           <label for="formDescription" class="form-label">Descripción</label>
+           <input type="text" class="form-control" id="formDescription" name="description" aria-describedby="">
+        </div>
+
+         <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+         </div>
+    </form>
+
+</fieldset>
+
 <!-- Div exclusivo para el buscador -->
 <div id="search-roomtype"></div>
 
 <!-- Div exclusivo para la tabla -->
 <div id="table-roomtype"></div>
+</div>
 
 <script src="~/Scripts/generic.js"></script>
 <script src="~/Scripts/RoomType/RoomType.js"></script>

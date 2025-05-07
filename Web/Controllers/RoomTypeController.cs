@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.RoomType;
+using Entity;
 
 namespace Web.Controllers
 {
@@ -21,6 +22,12 @@ namespace Web.Controllers
         {
             Filter filter = new Filter();
             return Json(filter.FilterRoomType(parameter));
+        }
+
+        public int SaveData(RoomType roomType)
+        {
+            Save save = new Save();
+            return save.SaveRoomType(roomType);
         }
     }
 }
