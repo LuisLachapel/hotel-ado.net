@@ -29,5 +29,13 @@ namespace Web.Controllers
             Save save = new Save();
             return save.SaveRoomType(roomType);
         }
+
+
+        // url para obtener por id: https://localhost:7049/RoomType/GetById/?id=1
+        public JsonResult GetById(int id)
+        {
+            Get roomType = new Get();
+            return Json(roomType.GetRoomType(id));
+        }
     }
 }

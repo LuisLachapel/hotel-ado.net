@@ -25,6 +25,11 @@ function SaveData() {
         body: form
     }).then(res => res.text())
         .then(res => {
-            location.reload();
+
+            RoomTypeList();
         })
+}
+
+function Clear() {
+    ClearValues("formRoomtype")
 }

@@ -2,6 +2,35 @@
     return document.getElementById(parameter).value;
 }
 
+const setValue = (id,value) => {
+    document.getElementById(id).value = value;
+}
+
+const ClearValues = (id) => {
+    document.getElementById(id).reset()
+}
+
+
+const DeleteAlert = () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+            });
+        }
+    });
+}
+
 var globalParameters;
 var globalSearchConfig;
 
@@ -11,6 +40,7 @@ function buildTable(data, parameters) {
     parameters.headers.forEach(header => {
         content += `<th>${header}</th>`;
     });
+    content += "<th>Operaciones</th>"
     content += "</tr>";
 
     data.forEach(row => {
@@ -18,6 +48,21 @@ function buildTable(data, parameters) {
         parameters.properties.forEach(prop => {
             content += `<td>${row[prop]}</td>`;
         });
+
+        //Botones
+        
+        //editar
+        content += "<td>"
+        content += `<i class=" btn btn-primary bi bi-pencil-square"></i>`
+        content += `<i class=" btn btn-danger bi bi-trash" onclick="DeleteAlert()" ></i>`
+        content += "</td>"
+
+        ////eliminar
+        //content += "<td>"
+        //
+        //content += "</td>"
+       
+
         content += "</tr>";
     });
 
