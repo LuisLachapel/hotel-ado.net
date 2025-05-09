@@ -28,18 +28,19 @@ const ClearValues = (id) => {
 
 const DeleteAlert = () => {
     Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
+        title: "¿Estas seguro de eliminar este registro?",
+        text: "El registro no se podra recuperar",
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
+        confirmButtonText: "Si, Eliminalo!",
+        cancelButtonText: "Cancelar"
     }).then((result) => {
         if (result.isConfirmed) {
             Swal.fire({
-                title: "Deleted!",
-                text: "Your file has been deleted.",
+                title: "Registro eliminado!",
+                text: "Este registro ha sido eliminado.",
                 icon: "success"
             });
         }
@@ -69,7 +70,7 @@ function buildTable(data, parameters) {
         //editar
         content += "<td>"
         content += `<i class=" btn btn-primary bi bi-pencil-square" onclick = "Edit(${row[parameters.propierty_id]})" ></i>`
-        content += `<i class=" btn btn-danger bi bi-trash" onclick="DeleteAlert()" ></i>`
+        content += `<i class=" btn btn-danger bi bi-trash" onclick="Delete(${row[parameters.propierty_id]})" ></i>`
         content += "</td>"
 
         ////eliminar

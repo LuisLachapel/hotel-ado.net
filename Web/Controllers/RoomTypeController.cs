@@ -37,5 +37,11 @@ namespace Web.Controllers
             Get roomType = new Get();
             return Json(roomType.GetRoomType(id));
         }
+
+        public int Delete(int id)
+        {
+            Delete roomType = new Delete();
+            return roomType.DeleteRoomType(id);
+        }
     }
 }
