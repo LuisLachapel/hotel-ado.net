@@ -7,12 +7,14 @@ function RoomTypeList() {
         url: "RoomType/List",
         id: "table-roomtype",
         headers: ["id", "nombre", "descripción"],
-        properties: ["id", "name", "description"]
+        properties: ["id", "name", "description"],
+        propierty_id: "id"
     }, {
         search: true,
         input_txt: "txtRoomType",
         container_id: "search-roomtype", // NUEVO: ID donde irá el buscador
-        custom_search_url: (value) => `RoomType/FilterRoomType/?parameter=${value}`
+        custom_search_url: (value) => `RoomType/FilterRoomType/?parameter=${value}`,
+        propierty_id: "id"
     });
 }
 
@@ -32,4 +34,8 @@ function SaveData() {
 
 function Clear() {
     ClearValues("formRoomtype")
+}
+
+function Edit(id) {
+    setValues(`RoomType/GetById/?id=${id}`,"formRoomtype")
 }

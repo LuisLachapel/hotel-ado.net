@@ -6,6 +6,21 @@ const setValue = (id,value) => {
     document.getElementById(id).value = value;
 }
 
+const setValues = (url,idForm, exceptions = []) => {
+    const elements = document.querySelectorAll(`#${idForm} [name]`);
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            elements.forEach(element => {
+                const fieldName = element.name;
+                if (!exceptions.includes(fieldName) && data.hasOwnProperty(fieldName)) {
+                    element.value = data[fieldName]; 
+                }
+            });
+        })
+}
+
 const ClearValues = (id) => {
     document.getElementById(id).reset()
 }
@@ -53,7 +68,7 @@ function buildTable(data, parameters) {
         
         //editar
         content += "<td>"
-        content += `<i class=" btn btn-primary bi bi-pencil-square"></i>`
+        content += `<i class=" btn btn-primary bi bi-pencil-square" onclick = "Edit(${row[parameters.propierty_id]})" ></i>`
         content += `<i class=" btn btn-danger bi bi-trash" onclick="DeleteAlert()" ></i>`
         content += "</td>"
 
