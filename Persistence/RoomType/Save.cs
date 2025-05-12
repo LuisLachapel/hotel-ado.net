@@ -21,7 +21,8 @@ namespace Persistence.RoomType
                         command.Parameters.AddWithValue("@nombre", roomType.name);
                         command.Parameters.AddWithValue("@descripcion", roomType.description);
                         response = command.ExecuteNonQuery();
-                        connection.Close();
+                        //El bloque using se encarga de liberar los recursos utilizados despues de que termine el proceso
+                        //connection.Close();
 
 
                     }

@@ -21,5 +21,23 @@ namespace Web.Controllers
             Filter brands = new Filter();
             return Json(brands.FilterBrands(parameter));
         }
+
+        public JsonResult GetById(int id)
+        {
+            Get brand = new Get();
+            return Json(brand.GetBrand(id));
+        }
+
+        public int SaveData(Entity.Brand brand)
+        {
+            Save save = new Save();
+            return save.SaveBrand(brand);
+        }
+
+        public int Delete(int id)
+        {
+            Delete brand = new Delete();
+            return brand.DeleteBrand(id);
+        }
     }
 }
