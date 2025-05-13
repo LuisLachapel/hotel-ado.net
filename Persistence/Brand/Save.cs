@@ -27,7 +27,7 @@ namespace Persistence.Brand
                 catch (Exception)
                 {
 
-                    throw;
+                    connection.Close();
                 }
             }
             return response;

@@ -26,27 +26,6 @@ const ClearValues = (id) => {
 }
 
 
-const DeleteAlert = () => {
-    Swal.fire({
-        title: "¿Estas seguro de eliminar este registro?",
-        text: "El registro no se podra recuperar",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, Eliminalo!",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire({
-                title: "Registro eliminado!",
-                text: "Este registro ha sido eliminado.",
-                icon: "success"
-            });
-        }
-    });
-}
-
 var globalParameters;
 var globalSearchConfig;
 
@@ -88,21 +67,20 @@ function buildTable(data, parameters) {
     document.getElementById(parameters.id).innerHTML = content;
 }
 
-function CreateTable(parameters, searchConfig = null) {
+function CreateTable(parameters, searchConfig = null, formParameters = null) {
     globalParameters = parameters;
     globalSearchConfig = searchConfig;
 
-    // Si se debe agregar buscador, lo hace en un contenedor independiente
+    // Si se debe agregar buscador
     if (searchConfig?.search) {
         const searchHTML = `
         <div class="input-group mb-3">
             <input type="text" id="${searchConfig.input_txt}" class="form-control" placeholder="Buscar..." aria-label="Buscar">
             <button class="btn btn-outline-secondary" type="button" onclick="PerformSearch()">Buscar</button>
         </div>
-    `;
+        `;
         document.getElementById(searchConfig.container_id).innerHTML = searchHTML;
 
-        // Agrega evento para Enter
         const inputElement = document.getElementById(searchConfig.input_txt);
         inputElement.addEventListener("keyup", function (event) {
             if (event.key === "Enter") {
@@ -111,12 +89,20 @@ function CreateTable(parameters, searchConfig = null) {
         });
     }
 
+    // Construcción de tabla
     fetch(parameters.url)
         .then(res => res.json())
         .then(res => {
             buildTable(res, parameters);
         });
+
+    // Construcción del formulario (fuera del bloque del buscador)
+    if (formParameters) {
+        const formHTML = buildForm(formParameters);
+        document.getElementById("form-container").innerHTML = formHTML;
+    }
 }
+
 
 // Se encarga de realizar la búsqueda
 function PerformSearch() {
@@ -131,4 +117,69 @@ function PerformSearch() {
         .then(res => {
             buildTable(res, globalParameters);
         });
+}
+
+
+function buildForm(formParameters) {
+    const type = formParameters.type || "fieldset";
+    const rows = formParameters.form || [];
+    const formId = formParameters.form_id || "generatedForm";
+    const legend = formParameters.legend || "Formulario";
+    const onSave = formParameters.onSave || "SaveData";
+    const onClear = formParameters.onClear || "Clear";
+
+    let content = `<${type} class="container mb-4" style="border: 1px solid black;">`;
+
+    if (type === "fieldset") {
+        content += `<legend style="font-size: 14px;">${legend}</legend>`;
+    }
+
+    content += `<form id="${formId}" method="post">`;
+
+    // Campos estructurados por fila
+    rows.forEach(row => {
+        content += `<div class="row">`;
+
+        row.forEach(field => {
+            const inputType = field.type || "text";
+            const label = field.label || "";
+            const name = field.name || "";
+            const value = field.value ?? "";
+            const readonly = field.readonly ? "readonly" : "";
+            const col = field.col || 12 / row.length;
+            const nroRow = field.row; 
+
+
+
+            const id = field.id || `form_${name}`;
+
+            if (inputType === "textarea") {
+                content += `
+        <div class="mb-3 col-md-${col}">
+            <label for="${id}" class="form-label">${label}</label>
+            <textarea class="form-control" id="${id}" name="${name}" ${readonly} rows="${nroRow }">${value}</textarea>
+        </div>`;
+            } else {
+                content += `
+        <div class="mb-3 col-md-${col}">
+            <label for="${id}" class="form-label">${label}</label>
+            <input type="${inputType}" class="form-control" id="${id}" name="${name}" value="${value}" ${readonly}>
+        </div>`;
+            }
+        });
+
+        content += `</div>`;
+    });
+
+    // Botones
+    content += `
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="${onSave}()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="${onClear}()">Limpiar</button>
+        </div>
+    `;
+
+    content += `</form></${type}>`;
+
+    return content;
 }
