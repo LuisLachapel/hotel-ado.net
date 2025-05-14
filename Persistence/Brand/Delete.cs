@@ -8,7 +8,7 @@ namespace Persistence.Brand
     {
         public int DeleteBrand(int id)
         {
-            int reponse = 0;
+            int response = 0;
             using(SqlConnection connection = new SqlConnection(db_connection))
             {
                 try
@@ -18,7 +18,7 @@ namespace Persistence.Brand
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@id", id);
-                        command.ExecuteNonQuery();
+                        response = command.ExecuteNonQuery();
                     }
                     
                 }
@@ -29,7 +29,7 @@ namespace Persistence.Brand
                 }
             }
 
-            return reponse;
+            return response;
         }
 
     }
