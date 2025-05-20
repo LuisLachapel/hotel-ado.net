@@ -20,8 +20,8 @@ namespace Persistence.Brand
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.HasRows)
                         {
-                            int fieldId = reader.GetOrdinal("IIDTIPOHABILITACION");
-                            int fieldName = reader.GetOrdinal("NOMBRE");
+                            int fieldId = reader.GetOrdinal("IIDMARCA");
+                            int fieldName = reader.GetOrdinal("NOMBREMARCA");
                             int fieldDescription = reader.GetOrdinal("DESCRIPCION");
 
                             while (reader.Read())
