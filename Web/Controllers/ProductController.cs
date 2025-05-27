@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.Product;
-using Persistence.Brand;
+
 
 namespace Web.Controllers
 {

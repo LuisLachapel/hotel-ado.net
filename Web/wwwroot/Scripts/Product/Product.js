@@ -1,5 +1,13 @@
 ﻿window.onload = function () {
     ProductList();
+    fillSelect();
+}
+
+
+async function fillSelect() {
+    const response = await fetch("Brand/List");
+    const data = await response.json();
+    createSelect(data, "selectBrand", "name", "id");
 }
 
 function ProductList() {

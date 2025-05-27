@@ -183,3 +183,18 @@ function buildForm(formParameters) {
 
     return content;
 }
+
+
+
+function createSelect(data, id, propertie, propertie_id) {
+
+    content = ``
+    var element;
+    content += "<option>--Seleccione--</option>"
+    for (var position = 0; position < data.length; position++) {
+        element = data[position];
+        content += `<option value="${element[propertie_id]}"> ${element[propertie]}</option>`
+    }
+    content += ``
+    document.getElementById(id).innerHTML = content;
+}
