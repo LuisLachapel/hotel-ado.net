@@ -31,5 +31,11 @@ namespace Web.Controllers
 
             
         }
+
+        public JsonResult FilterProductByBrand(int id)
+        {
+            FilterByBrand products = new FilterByBrand();
+            return Json(products.listByBrand(id));
+        }
     }
 }

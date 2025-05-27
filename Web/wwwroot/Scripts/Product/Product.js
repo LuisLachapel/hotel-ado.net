@@ -24,3 +24,15 @@ function ProductList() {
         
     })
 }
+
+function searchByBrand() {
+    var id = getValue("selectBrand");
+    CreateTable({
+        url: `Product/FilterProductByBrand/?id=${id}`,
+        id: "table-product",
+        headers: ["id", "nombre", "marca", "precio", "stock", "denominacion"],
+        properties: ["id", "name", "brandName", "salePrice", "stock", "denomination"]
+    })
+    
+
+}
