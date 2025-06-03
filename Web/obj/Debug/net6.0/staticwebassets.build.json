@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5+O2UZOVoy03EkewZ6XZGL1XvvCKfUN0v4eyDNuHaFg=",
+  "Hash": "Gch/Kjp7VQjrgVd/Z4MWiQ71EoxA2SQ2iCOVRhg/Z0M=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1122,6 +1122,23 @@
       "OriginalItemSpec": "wwwroot\\Scripts\\generic.js"
     },
     {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Person\\Person.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Scripts/Person/Person.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\Person\\Person.js"
+    },
+    {
       "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Product\\Product.js",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -1154,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Scripts\\RoomType\\RoomType.js"
+    },
+    {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\UserType\\UserType.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Scripts/UserType/UserType.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\UserType\\UserType.js"
     }
   ]
 }
