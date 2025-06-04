@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.Product;
-
+using Persistence.Category;
+    
 
 namespace Web.Controllers
 {
@@ -15,6 +16,12 @@ namespace Web.Controllers
         {
             Persistence.Product.GetAll products = new Persistence.Product.GetAll();
             return Json(products.List());
+        }
+
+        public JsonResult CategoryList()
+        {
+            Persistence.Category.GetAll categories = new Persistence.Category.GetAll();
+            return Json(categories.List());
         }
         public JsonResult FilterProduct(string parameter)
         {
@@ -36,6 +43,14 @@ namespace Web.Controllers
         {
             FilterByBrand products = new FilterByBrand();
             return Json(products.listByBrand(id));
+        }
+
+
+        //Filtrado por categoria: https://localhost:7049/Product/FilterProductByCategory/?id=1
+        public JsonResult FilterProductByCategory(int id)
+        {
+            FilterByCategory products = new FilterByCategory();
+            return Json(products.ListByCategory(id));
         }
     }
 }

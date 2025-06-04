@@ -1,7 +1,13 @@
 ﻿window.onload = function () {
     ProductList();
     fillSelect();
+    fillSelectByCategory();
 }
+
+
+var table_parameters;
+
+
 
 
 async function fillSelect() {
@@ -10,13 +16,22 @@ async function fillSelect() {
     createSelect(data, "selectBrand", "name", "id");
 }
 
+
+async function fillSelectByCategory() {
+    const response = await fetch("Product/CategoryList");
+    const data = await response.json();
+    createSelect(data, "selectCategory", "name", "id");
+}
+
 function ProductList() {
-    CreateTable({
+    table_parameters = {
         url: "Product/List",
         id: "table-product",
         headers: ["id", "nombre", "marca", "precio", "stock", "denominacion"],
-        properties: ["id", "name", "brandName", "salePrice","stock", "denomination"]
-    }, {
+        properties: ["id", "name", "brandName", "salePrice", "stock", "denomination"]
+    }
+
+    CreateTable(table_parameters, {
         search: true,
         input_txt: "txtProduct",
         container_id: "search-product",
@@ -27,12 +42,16 @@ function ProductList() {
 
 function searchByBrand() {
     var id = getValue("selectBrand");
-    CreateTable({
-        url: `Product/FilterProductByBrand/?id=${id}`,
-        id: "table-product",
-        headers: ["id", "nombre", "marca", "precio", "stock", "denominacion"],
-        properties: ["id", "name", "brandName", "salePrice", "stock", "denomination"]
-    })
+    table_parameters.url = `Product/FilterProductByBrand/?id=${id}`
+    CreateTable(table_parameters)
     
+
+}
+
+function searchByCategory() {
+    var id = getValue("selectCategory");
+    table_parameters.url = `Product/FilterProductByCategory/?id=${id}`
+    CreateTable(table_parameters)
+
 
 }
