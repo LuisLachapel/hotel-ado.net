@@ -6,6 +6,76 @@
 
 <h1>Personas</h1>
 
+<!--Formulario-->
+
+<fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de la persona</legend>
+    <form id="formPerson" method="post">
+        <div class="row">
+            <!--Campo para id-->
+            <div class="mb-3 col-md-6">
+               <label for="formId" class="form-label">Id</label>
+               <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+            </div>
+
+            <!--Campo para nombre-->
+            <div class="mb-3 col-md-6">
+               <label for="formName" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="formName" name="name" aria-describedby="">
+            </div>
+
+        </div>
+
+         <div class="row">
+            <!--Campo para apellidos-->
+            <div class="mb-3 col-md-6">
+               <label for="formLastName" class="form-label">1er apellido</label>
+               <input type="text" class="form-control" id="formLastName" aria-describedby="" name="last_name">
+            </div>
+
+            <div class="mb-3 col-md-6">
+               <label for="formSecondLastName" class="form-label">2do apellido</label>
+               <input type="text" class="form-control" id="formSecondLastName" name="second_last_name" aria-describedby="">
+            </div>
+
+        </div>
+
+        <div class="row">
+            <!--Campo para telefono y tipo usuario-->
+            <div class="mb-3 col-md-6">
+               <label for="formPhone" class="form-label">Phone</label>
+               <input type="number" class="form-control" id="formPhone" aria-describedby="" name="phone">
+            </div>
+
+            <div class="mb-3 col-md-6">
+              <label for="formSelect" class="form-label">Tipo de usuario</label>
+             <select class="form-control" id="selectUserType"></select>
+            </div>
+
+        </div>
+
+        <!--Radio button para sexo-->
+         <div class="row">
+         <div class="form-check  col-md-3">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioMale">
+         <label class="form-check-label" for="flexRadioDefault1">Masculino</label>
+       </div>
+      
+       <div class="form-check  col-md-2">
+         <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioFemale">
+         <label class="form-check-label" for="flexRadioDefault1">Femenino</label>
+       </div>
+          </div>
+    
+
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="Clear()">Limpiar</button>
+        </div>
+    </form>
+
+</fieldset>
+
 <!--Div para el buscador-->
 <div id="search-person"></div>
 

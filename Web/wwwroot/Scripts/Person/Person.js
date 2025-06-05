@@ -29,3 +29,11 @@ function searchByUserType() {
     CreateTable(table_parameters)
 }
 
+function Clear() {
+    ClearValues("formPerson")
+}
+
+function Edit(id) {
+    setValues(`Person/Get/?id=${id}`, "formPerson")
+}
+

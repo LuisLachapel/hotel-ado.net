@@ -16,6 +16,12 @@ namespace Web.Controllers
             return Json(person.List());
         }
 
+        public JsonResult Get(int id)
+        {
+            GetById person = new GetById();
+            return Json(person.GetPerson(id));
+        }
+
 
         //Url para el metodo de filtrado: https://localhost:7049/Person/Filter/?id=2
         public JsonResult Filter(int id)
