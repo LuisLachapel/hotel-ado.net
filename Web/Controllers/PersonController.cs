@@ -29,5 +29,12 @@ namespace Web.Controllers
             Filter person = new Filter();
             return Json(person.FilterPerson(id));
         }
+
+        public int SaveData(Entity.Person person)
+        {
+            Save save = new Save();
+            return save.SavePerson(person);
+
+        }
     }
 }

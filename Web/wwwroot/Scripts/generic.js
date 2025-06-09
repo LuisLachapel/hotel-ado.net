@@ -17,20 +17,11 @@ const setValues = (url, idForm, exceptions = []) => {
 
                 if (exceptions.includes(fieldName)) return;
 
-                // Determina el valor correspondiente del backend
-                let valueToSet = data[fieldName];
-
-                // Manejo especial para radio de sexo y select de tipo usuario
-                if (fieldName === "sex") {
-                    valueToSet = data["idSex"]; // valor que viene del backend
-                } else if (fieldName === "userType") {
-                    valueToSet = data["iduserType"];
-                }
+                const valueToSet = data[fieldName];
 
                 // Si no hay valor, lo ignora
                 if (valueToSet === undefined || valueToSet === null) return;
 
-                // Si es un input tipo radio
                 if (element.type === "radio") {
                     if (element.value === valueToSet.toString()) {
                         element.checked = true;
@@ -43,6 +34,7 @@ const setValues = (url, idForm, exceptions = []) => {
             });
         });
 };
+
 
 
 

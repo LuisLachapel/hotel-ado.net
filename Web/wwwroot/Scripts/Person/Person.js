@@ -40,4 +40,18 @@ function searchByUserType() {
 }
 
 
+function SaveData() {
+    var data = document.getElementById("formPerson");
+    var form = new FormData(data);
+    fetch("Person/SaveData", {
+        method: "POST",
+        body: form
+    }).then(res => res.text())
+        .then(res => {
+            console.log([...form.entries()])
+            PersonList();
+        })
+}
+
+
 

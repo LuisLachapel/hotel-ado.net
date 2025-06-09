@@ -20,13 +20,13 @@ namespace Persistence.Brand
                         command.Parameters.AddWithValue("@id", brand.id);
                         command.Parameters.AddWithValue("@nombre", brand.name);
                         command.Parameters.AddWithValue("@descripcion", brand.description);
-                        command.ExecuteNonQuery();
+                        response = command.ExecuteNonQuery();
                     }
 
                 }
                 catch (Exception)
                 {
-
+                    response = 0;
                     connection.Close();
                 }
             }
