@@ -49,23 +49,27 @@
 
             <div class="mb-3 col-md-6">
               <label for="formSelect" class="form-label">Tipo de usuario</label>
-             <select class="form-control" id="selectUserType"></select>
+             <select class="form-control" id="selectUserType" name="userType"></select>
             </div>
 
         </div>
 
         <!--Radio button para sexo-->
-         <div class="row">
-         <div class="form-check  col-md-3">
-         <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioMale">
-         <label class="form-check-label" for="flexRadioDefault1">Masculino</label>
-       </div>
-      
-       <div class="form-check  col-md-2">
-         <input class="form-check-input" type="radio" name="flexRadioDefault" id="RadioFemale">
-         <label class="form-check-label" for="flexRadioDefault1">Femenino</label>
-       </div>
-          </div>
+      <div class="row mb-3">
+    <label class="form-label">Sexo</label>
+    <div class="d-flex align-items-center">
+        <div class="form-check me-3">
+            <input class="form-check-input" type="radio" name="sex" id="RadioMale" value="1">
+            <label class="form-check-label" for="RadioMale">Masculino</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="sex" id="RadioFemale" value="2">
+            <label class="form-check-label" for="RadioFemale">Femenino</label>
+        </div>
+    </div>
+</div>
+
     
 
         <div class="mb-3"> 

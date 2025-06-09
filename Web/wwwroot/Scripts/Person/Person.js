@@ -3,6 +3,15 @@
     fillSelect();
 }
 
+function Clear() {
+    ClearValues("formPerson")
+}
+
+async function Edit(id) {
+    await fillSelect(); // Esperamos que se llene el select
+    setValues(`Person/Get/?id=${id}`, "formPerson");
+}
+
 
 
 async function fillSelect() {
@@ -17,7 +26,8 @@ function PersonList() {
         url: "Person/List",
         id: "table-person",
         headers: ["id", "nombre", "sexo", "Tipo"], //Cabeceras de la tabla
-        properties: ["id", "name", "sex", "userType"] // propiedades de la tabla de la db
+        properties: ["id", "name", "sex", "userType"], // propiedades de la tabla de la db
+        propierty_id: "id"
     }
 
     CreateTable(table_parameters)
@@ -29,11 +39,5 @@ function searchByUserType() {
     CreateTable(table_parameters)
 }
 
-function Clear() {
-    ClearValues("formPerson")
-}
 
-function Edit(id) {
-    setValues(`Person/Get/?id=${id}`, "formPerson")
-}
 

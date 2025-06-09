@@ -6,7 +6,7 @@ const setValue = (id,value) => {
     document.getElementById(id).value = value;
 }
 
-const setValues = (url,idForm, exceptions = []) => {
+const setValues = (url, idForm, exceptions = []) => {
     const elements = document.querySelectorAll(`#${idForm} [name]`);
 
     fetch(url)
@@ -14,12 +14,38 @@ const setValues = (url,idForm, exceptions = []) => {
         .then(data => {
             elements.forEach(element => {
                 const fieldName = element.name;
-                if (!exceptions.includes(fieldName) && data.hasOwnProperty(fieldName)) {
-                    element.value = data[fieldName]; 
+
+                if (exceptions.includes(fieldName)) return;
+
+                // Determina el valor correspondiente del backend
+                let valueToSet = data[fieldName];
+
+                // Manejo especial para radio de sexo y select de tipo usuario
+                if (fieldName === "sex") {
+                    valueToSet = data["idSex"]; // valor que viene del backend
+                } else if (fieldName === "userType") {
+                    valueToSet = data["iduserType"];
+                }
+
+                // Si no hay valor, lo ignora
+                if (valueToSet === undefined || valueToSet === null) return;
+
+                // Si es un input tipo radio
+                if (element.type === "radio") {
+                    if (element.value === valueToSet.toString()) {
+                        element.checked = true;
+                    }
+                } else if (element.tagName === "SELECT") {
+                    element.value = valueToSet.toString();
+                } else {
+                    element.value = valueToSet;
                 }
             });
-        })
-}
+        });
+};
+
+
+
 
 const ClearValues = (id) => {
     document.getElementById(id).reset()
@@ -187,14 +213,11 @@ function buildForm(formParameters) {
 
 
 function createSelect(data, id, propertie, propertie_id) {
-
-    content = ``
-    var element;
-    content += "<option>--Seleccione--</option>"
-    for (var position = 0; position < data.length; position++) {
-        element = data[position];
-        content += `<option value="${element[propertie_id]}"> ${element[propertie]}</option>`
+    let content = `<option value=''>--Seleccione--</option>`;
+    for (let position = 0; position < data.length; position++) {
+        const element = data[position];
+        content += `<option value="${element[propertie_id]}">${element[propertie]}</option>`;
     }
-    content += ``
     document.getElementById(id).innerHTML = content;
 }
+
