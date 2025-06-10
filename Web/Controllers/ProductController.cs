@@ -52,5 +52,17 @@ namespace Web.Controllers
             FilterByCategory products = new FilterByCategory();
             return Json(products.ListByCategory(id));
         }
+
+        public JsonResult Get(int id)
+        {
+            GetById product = new GetById();
+            return Json(product.GetProduct(id));
+        }
+
+        public int SaveData(Entity.Product product)
+        {
+            Save save = new Save();
+            return save.SaveProduct(product);
+        }
     }
 }
