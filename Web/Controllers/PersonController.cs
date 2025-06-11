@@ -36,5 +36,11 @@ namespace Web.Controllers
             return save.SavePerson(person);
 
         }
+
+        public int DeleteData(int id)
+        {
+            Delete function = new Delete();
+            return function.DeletePerson(id);
+        }
     }
 }

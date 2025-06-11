@@ -42,16 +42,65 @@ function searchByUserType() {
 
 function SaveData() {
     var data = document.getElementById("formPerson");
+
+    // Validación HTML5 manual
+    if (!data.checkValidity()) {
+        data.reportValidity(); // Muestra errores en pantalla
+        return; // Detiene el envío
+    }
+
     var form = new FormData(data);
     fetch("Person/SaveData", {
         method: "POST",
         body: form
     }).then(res => res.text())
         .then(res => {
-            console.log([...form.entries()])
+            console.log([...form.entries()]);
             PersonList();
-        })
+        });
 }
 
+
+
+function Delete(id) {
+    Swal.fire({
+        title: "¿Estás seguro de eliminar este registro?",
+        text: "Esta acción no se puede deshacer.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`Person/DeleteData?id=${id}`, {
+                method: "POST"
+            })
+                .then(res => res.text())
+                .then(response => {
+                    if (parseInt(response) > 0) {
+                        Swal.fire(
+                            "¡Eliminado!",
+                            "El registro ha sido eliminado.",
+                            "success"
+                        );
+                        PersonList(); // Refresca la tabla
+                    } else {
+                        Swal.fire(
+                            "Error",
+                            "No se pudo eliminar el registro.",
+                            "error"
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                    Swal.fire("Error", "Ocurrió un error al eliminar.", "error");
+                });
+        }
+    });
+
+}
 
 
