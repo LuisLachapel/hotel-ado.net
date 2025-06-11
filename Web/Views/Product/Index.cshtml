@@ -5,6 +5,78 @@
 
 <h1>Productos</h1>
 
+<!--Formulario-->
+
+<fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de la persona</legend>
+    <form id="formProduct" method="post">
+        <div class="row">
+            <!--Campo para id-->
+            <div class="mb-3 col-md-6">
+               <label for="formId" class="form-label">Id</label>
+               <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+            </div>
+
+            <!--Campo para nombre-->
+            <div class="mb-3 col-md-6">
+               <label for="formName" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="formName" name="name" aria-describedby="">
+            </div>
+
+        </div>
+
+         <div class="row">
+            <!--Campo para marca y categoria-->
+            <div class="mb-3 col-md-6">
+              <label for="formBrandSelect" class="form-label">Marca</label>
+             <select class="form-control" id="selectBrand" name="idBrand"></select>
+            </div>
+
+
+            <div class="mb-3 col-md-6">
+              <label for="formCategorySelect" class="form-label">Categoria</label>
+             <select class="form-control" id="selectCategory" name="idCategory"></select>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <!--Campo para precio y stock-->
+            <div class="mb-3 col-md-4">
+               <label for="formBuyPrice" class="form-label">Precio de compra</label>
+               <input type="number" class="form-control" id="formBuyPrice" aria-describedby="" name="buyPrice">
+            </div>
+
+            <div class="mb-3 col-md-4">
+               <label for="formSalePrice" class="form-label">Precio de venta</label>
+               <input type="number" class="form-control" id="formSalePrice" aria-describedby="" name="salePrice">
+            </div>
+
+            <div class="mb-3 col-md-4">
+               <label for="formStock" class="form-label">Stock</label>
+               <input type="number" class="form-control" id="formStock" aria-describedby="" name="stock">
+            </div>
+
+        </div>
+
+                <!--Campo para descripcion-->
+        <div class="mb-3">
+           <label for="formDescription" class="form-label">Descripción</label>
+           <textarea class="form-control" id="formDescription" name="description" rows="5" cols="20"></textarea>
+        </div>
+
+    
+
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="Clear()">Limpiar</button>
+        </div>
+    </form>
+
+</fieldset>
+
 <!--Div para el buscador-->
 <div id="search-product"></div>
 

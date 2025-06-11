@@ -64,5 +64,11 @@ namespace Web.Controllers
             Save save = new Save();
             return save.SaveProduct(product);
         }
+
+        public int DeleteProduct(int id)
+        {
+            Delete function = new Delete();
+            return function.DeleteProduct(id);
+        }
     }
 }
