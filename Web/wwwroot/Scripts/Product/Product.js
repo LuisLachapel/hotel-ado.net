@@ -2,15 +2,11 @@
     ProductList();
     fillSelect();
     fillSelectByCategory();
+    validateNumberInputs();
 }
 
 
 var table_parameters;
-
-
-
-
-
 
 async function fillSelect() {
     const response = await fetch("Brand/List");
@@ -80,48 +76,11 @@ function SaveData() {
         body: form
     }).then(res => res.text())
         .then(res => {
-            console.log([...form.entries()])
+           // console.log([...form.entries()]) se utiliza para mostrar en consola todos los campos y valores de un objeto FormData
             ProductList();
         })
 }
 
 function Delete(id) {
-    Swal.fire({
-        title: "¿Estás seguro de eliminar este registro?",
-        text: "Esta acción no se puede deshacer.",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Sí, eliminar",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            fetch(`Product/DeleteProduct?id=${id}`, {
-                method: "POST"
-            })
-                .then(res => res.text())
-                .then(response => {
-                    if (parseInt(response) > 0) {
-                        Swal.fire(
-                            "¡Eliminado!",
-                            "El registro ha sido eliminado.",
-                            "success"
-                        );
-                        ProductList(); // Refresca la tabla
-                    } else {
-                        Swal.fire(
-                            "Error",
-                            "No se pudo eliminar el registro.",
-                            "error"
-                        );
-                    }
-                })
-                .catch(error => {
-                    console.error("Error al eliminar:", error);
-                    Swal.fire("Error", "Ocurrió un error al eliminar.", "error");
-                });
-        }
-    });
-
+    deleteRow(id, "Product/DeleteProduct", ProductList)
 }

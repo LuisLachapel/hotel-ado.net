@@ -43,6 +43,92 @@ const ClearValues = (id) => {
     document.getElementById(id).reset()
 }
 
+const deleteRow = (id,url,list) => {
+    Swal.fire({
+        title: "¿Estás seguro de eliminar este registro?",
+        text: "Esta acción no se puede deshacer.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch(`${url}?id=${id}`, {
+                method: "POST"
+            })
+                .then(res => res.text())
+                .then(response => {
+                    if (parseInt(response) > 0) {
+                        Swal.fire(
+                            "¡Eliminado!",
+                            "El registro ha sido eliminado.",
+                            "success"
+                        );
+                        list(); // Refresca la tabla
+                    } else {
+                        Swal.fire(
+                            "Error",
+                            "No se pudo eliminar el registro.",
+                            "error"
+                        );
+                    }
+                })
+                .catch(error => {
+                    console.error("Error al eliminar:", error);
+                    Swal.fire("Error", "Ocurrió un error al eliminar.", "error");
+                });
+        }
+    });
+} 
+
+
+
+function validateNumberInputs() {
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+        const isStockInput = input.id === 'formStock';
+
+        input.addEventListener('keydown', (e) => {
+            // Evitar teclas no deseadas
+            if (
+                ["e", "E", "+", "-"].includes(e.key) ||
+                (e.ctrlKey && e.key === 'v') // Opcional: bloquear Ctrl+V
+            ) {
+                e.preventDefault();
+            }
+
+            // Para el input de stock: bloquear también el punto
+            if (isStockInput && e.key === ".") {
+                e.preventDefault();
+            }
+
+            // Para los inputs decimales: bloquear punto si es el primer carácter
+            if (!isStockInput && e.key === "." && input.value === "") {
+                e.preventDefault();
+            }
+        });
+
+        // Validar el contenido pegado
+        input.addEventListener('paste', (e) => {
+            const paste = (e.clipboardData || window.clipboardData).getData('text');
+
+            // Validación para el input de stock: solo enteros
+            if (isStockInput && !/^\d+$/.test(paste)) {
+                e.preventDefault();
+            }
+
+            // Validación para precios: solo número decimal válido
+            if (!isStockInput && !/^\d*\.?\d*$/.test(paste)) {
+                e.preventDefault();
+            }
+        });
+    });
+}
+
+
+
+
 
 var globalParameters;
 var globalSearchConfig;
