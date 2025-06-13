@@ -5,8 +5,61 @@
 <h2>Listado de camas</h2>
 
 
-<!-- Div exclusivo para el formulario de camas -->
-<div id="form-container"></div>
+<!--Formulario-->
+
+<fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de la categoria</legend>
+    <form id="formBed" method="post">
+        <div class="row">
+            <!--Campo para id-->
+            <div class="mb-3 col-md-6">
+               <label for="formId" class="form-label">Id</label>
+               <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+            </div>
+
+            <!--Campo para nombre-->
+            <div class="mb-3 col-md-6">
+               <label for="formName" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="formName" name="name" required maxlength="20" aria-describedby="">
+            </div>
+
+        </div>
+        <!--Campo para descripcion-->
+        <div class="mb-3">
+           <label for="formDescription" class="form-label">Descripción</label>
+           <textarea class="form-control" id="formDescription" name="description" rows="5" cols="20" required maxlength="50"></textarea>
+        </div>
+
+      <!--Radio button para estado-->
+      <div class="row mb-3">
+    <label class="form-label">Estado</label>
+    <div class="d-flex align-items-center">
+        <div class="form-check me-3">
+            <input class="form-check-input" type="radio" name="idState" id="RadioExcelente" value="1">
+            <label class="form-check-label" for="RadioExcelente">Excelente estado</label>
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="idState" id="RadioBueno" value="2">
+            <label class="form-check-label" for="RadioBueno">Buen estado</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="idState" id="RadioMalo" value="3">
+            <label class="form-check-label" for="RadioMalo">Mal Estado</label>
+        </div>
+    </div>
+</div>
+
+
+    
+
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="Clear()">Limpiar</button>
+        </div>
+    </form>
+
+</fieldset>
 
 <!-- Div exclusivo para el buscador de camas -->
 <div id="search-bed"></div>

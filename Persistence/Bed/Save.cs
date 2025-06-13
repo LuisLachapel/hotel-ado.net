@@ -19,6 +19,7 @@ namespace Persistence.Bed
                         command.Parameters.AddWithValue("@id", bed.id);
                         command.Parameters.AddWithValue("@nombre", bed.name);
                         command.Parameters.AddWithValue("@descripcion", bed.description);
+                        command.Parameters.AddWithValue("@idestado",bed.idState);
                         
                         response = command.ExecuteNonQuery();
 

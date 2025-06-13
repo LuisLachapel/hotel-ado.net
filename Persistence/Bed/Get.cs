@@ -23,11 +23,13 @@ namespace Persistence.Bed
                             int fieldId = reader.GetOrdinal("IIDCAMA");
                             int fieldName = reader.GetOrdinal("NOMBRE");
                             int fieldDescription = reader.GetOrdinal("DESCRIPCION");
+                            int fieldState = reader.GetOrdinal("idestado");
                             while (reader.Read())
                             {
                                 bed.id = reader.IsDBNull(fieldId) ? 0 : reader.GetInt32(fieldId);
                                 bed.name = reader.IsDBNull(fieldName) ? "" : reader.GetString(fieldName);
                                 bed.description = reader.IsDBNull(fieldDescription) ? "" : reader.GetString(fieldDescription);
+                                bed.idState = reader.IsDBNull(fieldState) ? 0 : reader.GetInt32(fieldState);
                             }
 
                         }
