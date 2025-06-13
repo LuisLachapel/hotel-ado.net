@@ -16,7 +16,7 @@ namespace Persistence.Category
                     using(SqlCommand command = new SqlCommand("uspRecuperarCategoria", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@id", category.id);
+                        command.Parameters.AddWithValue("@id", id);
                         SqlDataReader reader = command.ExecuteReader();
                         if (reader.HasRows)
                         {

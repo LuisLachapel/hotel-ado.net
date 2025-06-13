@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<h1>Categorias</h1>
+
+<!--Formulario-->
+
+<fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de la categoria</legend>
+    <form id="formCategory" method="post">
+        <div class="row">
+            <!--Campo para id-->
+            <div class="mb-3 col-md-6">
+               <label for="formId" class="form-label">Id</label>
+               <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+            </div>
+
+            <!--Campo para nombre-->
+            <div class="mb-3 col-md-6">
+               <label for="formName" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="formName" name="name" required maxlength="20" aria-describedby="">
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+           <label for="formDescription" class="form-label">Descripción</label>
+           <textarea class="form-control" id="formDescription" name="description" rows="5" cols="20" required maxlength="50"></textarea>
+        </div>
+
+
+    
+
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="Clear()">Limpiar</button>
+        </div>
+    </form>
+
+</fieldset>
+
+<!--Div para el buscador
+<div id="search-person"></div>
+-->
+
+<!-- Div exclusivo para la tabla -->
+<div id="table-category"></div>
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Category/Category.js"></script>
+
+
+
