@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.Product;
-using Persistence.Category;
+//using Persistence.Category;
     
 
 namespace Web.Controllers
@@ -14,18 +14,14 @@ namespace Web.Controllers
 
         public JsonResult List()
         {
-            Persistence.Product.GetAll products = new Persistence.Product.GetAll();
+            GetAll products = new GetAll();
             return Json(products.List());
         }
 
-        public JsonResult CategoryList()
-        {
-            Persistence.Category.GetAll categories = new Persistence.Category.GetAll();
-            return Json(categories.List());
-        }
+      
         public JsonResult FilterProduct(string parameter)
         {
-            Persistence.Product.Filter products = new Persistence.Product.Filter();
+            Filter products = new Filter();
             return Json(products.FilterProducts(parameter));
         }
 
