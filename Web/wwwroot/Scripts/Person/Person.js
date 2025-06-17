@@ -1,16 +1,53 @@
 ﻿window.onload = function () {
     PersonList();
     fillSelect();
+    previewImage();
+}
+
+
+function previewImage() {
+    var uploadPhoto = document.getElementById("photoInput");
+    var imgPhoto = document.getElementById("previewImage");
+    uploadPhoto.onchange = function () {
+        var file = uploadPhoto.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onloadend = function () {
+                imgPhoto.src = reader.result;
+                imgPhoto.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        }
+    }
 }
 
 function Clear() {
     ClearValues("formPerson")
+    const previewImage = document.getElementById("previewImage");
+    previewImage.removeAttribute("src");
+    previewImage.style.display = "none";
 }
 
 async function Edit(id) {
-    await fillSelect(); // Esperamos que se llene el select
-    setValues(`Person/Get/?id=${id}`, "formPerson");
+    await fillSelect();
+    await setValues(`Person/Get/?id=${id}`, "formPerson");
+
+    const imgPreview = document.getElementById("previewImage");
+
+    // Asignar el manejador de error primero
+    imgPreview.onerror = function () {
+        imgPreview.style.display = "none";
+        imgPreview.removeAttribute("src"); // <-- evita imagen rota o alt visible
+    };
+
+    imgPreview.onload = function () {
+        imgPreview.style.display = "block";
+    };
+
+    imgPreview.src = `/Person/GetPhoto?id=${id}`;
 }
+
+
 
 
 

@@ -1,6 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
-
+using System.IO;
 namespace Persistence.Person
 {
     public class GetById: DBConnection
@@ -27,6 +27,8 @@ namespace Persistence.Person
                             int PhoneField = reader.GetOrdinal("TELEFONOFIJO");
                             int sexField = reader.GetOrdinal("IIDSEXO");
                             int userTypeField = reader.GetOrdinal("IIDTIPOUSUARIO");
+                            int photoField = reader.GetOrdinal("foto");
+                            int photoFieldName = reader.GetOrdinal("nombre_foto");
 
                             while (reader.Read())
                             {
@@ -37,6 +39,11 @@ namespace Persistence.Person
                                 person.Phone = reader.IsDBNull(PhoneField) ? "" : reader.GetString(PhoneField);
                                 person.idSex = reader.IsDBNull(sexField) ? 0 : reader.GetInt32(sexField);
                                 person.iduserType = reader.IsDBNull(userTypeField) ? 0: reader.GetInt32(userTypeField);
+                                person.photo_name = reader.IsDBNull(photoFieldName) ? "": reader.GetString(photoFieldName);
+                                if (!reader.IsDBNull(photoField))
+                                {
+                                    person.photo = (byte[])reader.GetValue(photoField);
+                                }
                             }
                         }
                     }

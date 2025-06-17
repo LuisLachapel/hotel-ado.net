@@ -22,6 +22,8 @@ namespace Persistence.Person
                         command.Parameters.AddWithValue("@telefono", person.Phone);
                         command.Parameters.AddWithValue("@idsexo", person.idSex);
                         command.Parameters.AddWithValue("@idtipousuario", person.iduserType);
+                        command.Parameters.AddWithValue("@foto", person.photo);
+                        command.Parameters.AddWithValue("@nombre_foto", person.photo_name);
                         result = command.ExecuteNonQuery();
 
                     }

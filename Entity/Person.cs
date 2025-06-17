@@ -12,6 +12,9 @@ namespace Entity
         public int idSex { get; set; }
         public string userType { get; set; }
         public int iduserType { get; set; }
+        public string photo_name { get; set; }
+        public byte[] photo { get; set; }
+        public string photoBase64 { get; set; }
 
     }
 }
