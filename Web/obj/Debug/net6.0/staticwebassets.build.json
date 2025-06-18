@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "cPC7Ud4wbHzRH18f4CbpZ7cOXHpscqoeU/oO0Te04W8=",
+  "Hash": "pBJnXif9oEjBzeN9F1UFd08P+IAIUOWi5g/e5Lxxfnc=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Files\\agua.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Files/agua.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\agua.png"
+    },
+    {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Files\\Captura de pantalla (1142).png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Files/Captura de pantalla (1142).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Files\\Captura de pantalla (1142).png"
     },
     {
       "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\js\\site.js",
@@ -1137,6 +1171,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Scripts\\generic.js"
+    },
+    {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Hotel\\Hotel.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Scripts/Hotel/Hotel.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\Hotel\\Hotel.js"
     },
     {
       "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Person\\Person.js",
