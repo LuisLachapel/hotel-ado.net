@@ -15,6 +15,7 @@ namespace Entity
         public string photo_name { get; set; }
         public byte[] photo { get; set; }
         public string photoBase64 { get; set; }
+        public List<int> likes { get; set; }
 
     }
 }
