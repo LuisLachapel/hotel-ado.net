@@ -19,7 +19,6 @@ const setValues = (url, idForm, exceptions = []) => {
 
                 const valueToSet = data[fieldName];
 
-                // Si no hay valor, lo ignora
                 if (valueToSet === undefined || valueToSet === null) return;
 
                 if (element.type === "radio") {
@@ -28,10 +27,22 @@ const setValues = (url, idForm, exceptions = []) => {
                     }
                 } else if (element.tagName === "SELECT") {
                     element.value = valueToSet.toString();
+                } else if (element.type === "checkbox" && fieldName === "likes[]") {
+                    // Este caso se maneja por separado después
                 } else {
                     element.value = valueToSet;
                 }
             });
+
+            // ✅ Asignar gustos a los checkboxes
+            if (Array.isArray(data.likes)) {
+                data.likes.forEach(idGusto => {
+                    const checkbox = document.querySelector(`#${idForm} input[name="likes[]"][value="${idGusto}"]`);
+                    if (checkbox) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
         });
 };
 

@@ -45,12 +45,20 @@ namespace Persistence.Person
                                     person.photo = (byte[])reader.GetValue(photoField);
                                 }
                             }
+                            if (reader.NextResult())
+                            {
+                                person.likes = new List<int>();
+                                while (reader.Read())
+                                {
+                                    person.likes.Add(reader.GetInt32(0));
+                                }
+                            }
                         }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    throw new Exception("Error al obtener: " + ex.Message, ex);
                     connection.Close();
                 }
                 connection.Close();

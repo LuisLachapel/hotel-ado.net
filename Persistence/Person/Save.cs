@@ -25,9 +25,20 @@ namespace Persistence.Person
                             command.Parameters.AddWithValue("@telefono", person.Phone);
                             command.Parameters.AddWithValue("@idsexo", person.idSex);
                             command.Parameters.AddWithValue("@idtipousuario", person.iduserType);
-                            command.Parameters.AddWithValue("@foto", person.photo);
-                            command.Parameters.AddWithValue("@nombre_foto", person.photo_name);
+                            command.Parameters.Add("@foto", SqlDbType.VarBinary).Value = person.photo ?? (object)DBNull.Value;
+                            command.Parameters.Add("@nombre_foto", SqlDbType.VarChar, 60).Value =
+                                string.IsNullOrWhiteSpace(person.photo_name) ? (object)DBNull.Value : person.photo_name;
+
+
+                            SqlParameter outputIdParam = new SqlParameter("@NuevoID", SqlDbType.Int)
+                            {
+                                Direction = ParameterDirection.Output
+                            };
+                            command.Parameters.Add(outputIdParam);
+
                             result = command.ExecuteNonQuery();
+                            person.id = (int)outputIdParam.Value;
+
 
                         }
                         using (SqlCommand command = new SqlCommand("uspEliminarGustos", connection,transaction))
@@ -36,7 +47,7 @@ namespace Persistence.Person
                             command.Parameters.AddWithValue("@idpersona",person.id);
                             command.ExecuteNonQuery();
                         }
-                        for (int index = 0; index <= person.likes.Count; index++)
+                        for (int index = 0; index < person.likes.Count; index++) // era <=
                         {
                             using (SqlCommand command = new SqlCommand("agregarGusto", connection, transaction))
                             {
@@ -45,18 +56,20 @@ namespace Persistence.Person
                                 command.Parameters.AddWithValue("@idgusto", person.likes[index]);
                                 command.ExecuteNonQuery();
                             }
-
                         }
+
 
                         transaction.Commit();
                     }
                     
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                   
                     result = 0;
                     connection.Close();
+                    throw new Exception("Error al guardar persona y gustos: " + ex.Message, ex);
                 }
             }
 

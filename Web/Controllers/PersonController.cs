@@ -45,7 +45,7 @@ namespace Web.Controllers
             return Json(person.FilterPerson(id));
         }
 
-        public int SaveData(Entity.Person person, IFormFile photoFile)
+        public int SaveData(Entity.Person person, IFormFile photoFile, List<int> likes)
         {
             if(photoFile != null && photoFile.Length > 0)
             {
@@ -54,9 +54,10 @@ namespace Web.Controllers
                 using (var memoryStream = new MemoryStream())
                 {
                     photoFile.CopyTo(memoryStream);
-                    person.photo = memoryStream.ToArray(); // Guardamos la imagen en byte[]
+                    person.photo = memoryStream.ToArray(); // Guardado de la imagen en byte[]
                 }
             }
+            person.likes = likes;
             Save save = new Save();
             return save.SavePerson(person);
 
