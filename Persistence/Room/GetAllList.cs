@@ -14,7 +14,7 @@ namespace Persistence.Room
                 try
                 {
                     connection.Open();
-                    using(SqlCommand command = new SqlCommand("", connection))
+                    using(SqlCommand command = new SqlCommand("uspListarHabitacion", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         SqlDataReader reader = command.ExecuteReader();
@@ -51,17 +51,43 @@ namespace Persistence.Room
                             {
                                 Entity.RoomType roomType = new Entity.RoomType();
                                 roomType.id = reader.IsDBNull(0)? 0 : reader.GetInt32(0);
-                                roomType.name = reader.IsDBNull(1) ? "" : reader.GetString(0);
+                                roomType.name = reader.IsDBNull(1) ? "" : reader.GetString(1);
                                 roomTypes.Add(roomType);
                             }
                             roomList.roomsType = roomTypes;
+
+                        }
+                        if (reader.NextResult())
+                        {
+                            List<Entity.Bed> beds = new List<Entity.Bed>();
+                            while (reader.Read())
+                            {
+                                Entity.Bed bed = new Entity.Bed();
+                                bed.id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                                bed.name = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                                beds.Add(bed);
+                            }
+                            roomList.beds = beds;
+
+                        }
+                        if (reader.NextResult())
+                        {
+                            List<Entity.Hotel> hotels = new List<Entity.Hotel>();
+                            while (reader.Read())
+                            {
+                                Entity.Hotel hotel = new Entity.Hotel();
+                                hotel.id = reader.IsDBNull(0) ? 0 : reader.GetInt32(0);
+                                hotel.name = reader.IsDBNull(1) ? "" : reader.GetString(1);
+                                hotels.Add(hotel);
+                            }
+                            roomList.hotels = hotels;
 
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-
+                    throw new Exception("Error de listados " + ex.Message, ex);
                     connection.Close();
                 }
             }
