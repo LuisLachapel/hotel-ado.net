@@ -4,3 +4,85 @@
 
 
 <h1>Habitacion</h1>
+
+<!--Formulario-->
+
+<fieldset class="container mb-4" style="border: 1px solid black;">
+    <legend style="font-size: 14px;">Datos de la habitacion</legend>
+    <form id="formRoom" method="post">
+        <div class="row">
+            <!--Campo para id-->
+            <div class="mb-3 col-md-6">
+               <label for="formId" class="form-label">Id</label>
+               <input type="number" class="form-control" id="formId" aria-describedby="" name="id" value="0" readonly>
+            </div>
+
+            <!--Campo para nombre-->
+            <div class="mb-3 col-md-6">
+               <label for="formName" class="form-label">Nombre</label>
+               <input type="text" class="form-control" id="formName" name="name" required maxlength="20" aria-describedby="">
+            </div>
+
+        </div>
+
+         <div class="row">
+            <!--Campo para cama, tipo habitacion y hoteles-->
+            <div class="mb-3 col-md-4">
+              <label for="formBedSelect" class="form-label">Cama</label>
+             <select class="form-control" id="selectBeds" name="id"></select>
+            </div>
+
+
+            <div class="mb-3 col-md-4">
+              <label for="formRoomTypeSelect" class="form-label">Tipo habitacion</label>
+             <select class="form-control" id="selectRoomType" name="id"></select>
+            </div>
+
+            <div class="mb-3 col-md-4">
+              <label for="formHotelSelect" class="form-label">Hotel</label>
+             <select class="form-control" id="selectHotel" name="id"></select>
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <!--Campo para precio y stock-->
+            <div class="mb-3 col-md-6">
+               <label for="formPriceByNight" class="form-label">Precio por noche</label>
+               <input type="number" class="form-control" id="formPriceByNight" aria-describedby="" name="priceByNight">
+            </div>
+
+            <div class="mb-3 col-md-6">
+               <label for="formNumberOfPeople" class="form-label">Numero de personas</label>
+               <input type="number" class="form-control" id="formNumberOfPeople" aria-describedby="" name="numberOfPeople" inputmode="numeric", min="0">
+            </div>
+
+        </div>
+
+                <!--Campo para descripcion-->
+        <div class="mb-3">
+           <label for="formDescription" class="form-label">Descripción</label>
+           <textarea class="form-control" id="formDescription" name="description" rows="5" cols="20" required maxlength="50"></textarea>
+        </div>
+
+    
+
+        <div class="mb-3"> 
+            <button type="button" class="btn btn-primary" onclick="SaveData()">Aceptar</button>
+            <button type="button" class="btn btn-danger" onclick="Clear()">Limpiar</button>
+        </div>
+    </form>
+
+</fieldset>
+
+<!--Div para el buscador-->
+<div id="search-product"></div>
+
+
+<!-- Div exclusivo para la tabla -->
+<div id="table-room"></div>
+
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/Room/Room.js"></script>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pBJnXif9oEjBzeN9F1UFd08P+IAIUOWi5g/e5Lxxfnc=",
+  "Hash": "DwdfmaQs2wjsEahqyejymawPnkJ5OOhIMcqXBw8xuuU=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1222,6 +1222,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Scripts\\Product\\Product.js"
+    },
+    {
+      "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\Room\\room.js",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "Scripts/Room/room.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Scripts\\Room\\room.js"
     },
     {
       "Identity": "D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\wwwroot\\Scripts\\RoomType\\RoomType.js",

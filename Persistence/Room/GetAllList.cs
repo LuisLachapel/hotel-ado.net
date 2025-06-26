@@ -26,7 +26,7 @@ namespace Persistence.Room
                             int numberOfPeopleField = reader.GetOrdinal("NUMEROPERSONAS");
                             int hasWifiField = reader.GetOrdinal("TIENEWIFI");
                             int hasSeaViewField = reader.GetOrdinal("TIENEVISTAALMAR");
-                            int hasPoolField = reader.GetOrdinal("TIENEPISCINA ");
+                            int hasPoolField = reader.GetOrdinal("TIENEPISCINA");
                             List<Entity.Room> rooms = new List<Entity.Room> ();
 
                             while (reader.Read())

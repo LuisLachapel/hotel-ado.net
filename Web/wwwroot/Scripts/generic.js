@@ -97,45 +97,46 @@ const deleteRow = (id,url,list) => {
 
 
 function validateNumberInputs() {
+    // Lista de inputs que deben aceptar solo enteros (sin punto, sin letras, etc.)
+    const integerOnlyInputs = ['formStock', 'formNumberOfPeople'];
+
     document.querySelectorAll('input[type="number"]').forEach(input => {
-        const isStockInput = input.id === 'formStock';
+        const isIntegerOnly = integerOnlyInputs.includes(input.id);
 
         input.addEventListener('keydown', (e) => {
-            // Evitar teclas no deseadas
+            // Bloquear caracteres no numéricos comunes en inputs de tipo number
             if (
                 ["e", "E", "+", "-"].includes(e.key) ||
-                (e.ctrlKey && e.key === 'v') // Opcional: bloquear Ctrl+V
+                (e.ctrlKey && e.key === 'v') // (Opcional) Bloquear Ctrl+V por seguridad
             ) {
                 e.preventDefault();
             }
 
-            // Para el input de stock: bloquear también el punto
-            if (isStockInput && e.key === ".") {
+            // Bloquear el punto si debe ser entero
+            if (isIntegerOnly && e.key === ".") {
                 e.preventDefault();
             }
 
-            // Para los inputs decimales: bloquear punto si es el primer carácter
-            if (!isStockInput && e.key === "." && input.value === "") {
+            // Si es decimal, bloquear punto como primer carácter
+            if (!isIntegerOnly && e.key === "." && input.value === "") {
                 e.preventDefault();
             }
         });
 
-        // Validar el contenido pegado
         input.addEventListener('paste', (e) => {
             const paste = (e.clipboardData || window.clipboardData).getData('text');
 
-            // Validación para el input de stock: solo enteros
-            if (isStockInput && !/^\d+$/.test(paste)) {
+            if (isIntegerOnly && !/^\d+$/.test(paste)) {
                 e.preventDefault();
             }
 
-            // Validación para precios: solo número decimal válido
-            if (!isStockInput && !/^\d*\.?\d*$/.test(paste)) {
+            if (!isIntegerOnly && !/^\d*\.?\d*$/.test(paste)) {
                 e.preventDefault();
             }
         });
     });
 }
+
 
 
 
