@@ -16,7 +16,7 @@ async function fillSelect() {
 
 
 async function fillSelectByCategory() {
-    const response = await fetch("Product/CategoryList");
+    const response = await fetch("Category/List");
     const data = await response.json();
     createSelect(data, "selectCategory", "name", "id");
 }

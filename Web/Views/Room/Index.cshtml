@@ -29,18 +29,18 @@
             <!--Campo para cama, tipo habitacion y hoteles-->
             <div class="mb-3 col-md-4">
               <label for="formBedSelect" class="form-label">Cama</label>
-             <select class="form-control" id="selectBeds" name="id"></select>
+             <select class="form-control" id="selectBeds" name="bedId"></select>
             </div>
 
 
             <div class="mb-3 col-md-4">
               <label for="formRoomTypeSelect" class="form-label">Tipo habitacion</label>
-             <select class="form-control" id="selectRoomType" name="id"></select>
+             <select class="form-control" id="selectRoomType" name="roomTypeId"></select>
             </div>
 
             <div class="mb-3 col-md-4">
               <label for="formHotelSelect" class="form-label">Hotel</label>
-             <select class="form-control" id="selectHotel" name="id"></select>
+             <select class="form-control" id="selectHotel" name="hotelId"></select>
             </div>
 
 
@@ -48,7 +48,7 @@
 
 
         <div class="row">
-            <!--Campo para precio y stock-->
+            <!--Campo para precio y numero de personas-->
             <div class="mb-3 col-md-6">
                <label for="formPriceByNight" class="form-label">Precio por noche</label>
                <input type="number" class="form-control" id="formPriceByNight" aria-describedby="" name="priceByNight">
@@ -60,6 +60,56 @@
             </div>
 
         </div>
+
+        <!-- Radio buttons -->
+    <div class="row">
+      <!-- Tiene piscina -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label">Tiene Piscina</label>
+        <div class="d-flex gap-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasPool" id="RadioPoolYes" value="1">
+            <label class="form-check-label" for="RadioPoolYes">Si</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasPool" id="RadioPoolNo" value="0">
+            <label class="form-check-label" for="RadioPoolNo">No</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tiene vista al mar -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label">Tiene vista al mar</label>
+        <div class="d-flex gap-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasSeaView" id="hasSeaViewYes" value="1">
+            <label class="form-check-label" for="hasSeaViewYes">Si</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasSeaView" id="hasSeaViewNo" value="0">
+            <label class="form-check-label" for="hasSeaViewNo">No</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tiene Wifi -->
+      <div class="mb-3 col-md-4">
+        <label class="form-label">Tiene Wifi</label>
+        <div class="d-flex gap-3">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasWifi" id="hasWifiYes" value="1">
+            <label class="form-check-label" for="hasWifiYes">Si</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="hasWifi" id="hasWifiNo" value="0">
+            <label class="form-check-label" for="hasWifiNo">No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
                 <!--Campo para descripcion-->
         <div class="mb-3">

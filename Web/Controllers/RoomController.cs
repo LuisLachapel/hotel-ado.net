@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.Room;
+using Entity;
 
 namespace Web.Controllers
 {
@@ -26,6 +27,12 @@ namespace Web.Controllers
         {
             GetAll function = new GetAll();
             return Json(function.List());
+        }
+
+        public int SaveData(Room room)
+        {
+            Save function = new Save();
+            return function.SaveRoom(room);
         }
     }
 }

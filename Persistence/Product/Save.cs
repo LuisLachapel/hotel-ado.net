@@ -31,10 +31,11 @@ namespace Persistence.Product
                     }
 
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     result = 0;
                     connection.Close();
+                    throw new Exception("Error en guardar / editar productos " + ex.Message, ex);
                 }
             }
             return result;

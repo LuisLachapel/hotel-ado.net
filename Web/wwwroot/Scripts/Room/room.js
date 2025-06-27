@@ -43,25 +43,14 @@ function RoomList() {
     CreateTable(table_parameters)
 }
 
-function searchByBrand() {
-    var id = getValue("selectBrand");
-    table_parameters.url = `Product/FilterProductByBrand/?id=${id}`
-    CreateTable(table_parameters)
 
-
-}
-
-function searchByCategory() {
-    var id = getValue("selectCategory");
-    table_parameters.url = `Product/FilterProductByCategory/?id=${id}`
-    CreateTable(table_parameters)
-
-
-}
 
 async function Edit(id) {
-    await fillSelect(); // Esperamos que se llene el select
-    setValues(`Product/Get/?id=${id}`, "formRoom");
+   // await fillSelect(); // Esperamos que se llene el select
+    const response = await fetch(`Room/Get/?id=${id}`)
+    const data = await response.json()
+    console.log(data)
+    setValues(`Room/Get/?id=${id}`, "formRoom");
 }
 
 
@@ -83,5 +72,5 @@ function SaveData() {
 }
 
 function Delete(id) {
-    deleteRow(id, "Product/DeleteProduct", ProductList)
+    deleteRow(id, "Product/DeleteProduct", RoomList)
 }
