@@ -191,5 +191,12 @@
     "C:\\Users\\LENOVO GOLD\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\LENOVO GOLD\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Web\\obj\\project.nuget.cache : Se ha especificado un dispositivo que no existe.\r\n"
+    }
+  ]
 }

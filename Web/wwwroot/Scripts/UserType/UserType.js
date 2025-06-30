@@ -1,8 +1,35 @@
 ﻿window.onload = function () {
     UserTypeList();
+    loadPageParameters();
     fillSelect();
     
 }
+
+async function loadPageParameters() {
+    try {
+        const response = await fetch("Page/List");
+        const data = await response.json();
+
+        const tableBody = document.querySelector("#tablePageData tbody");
+        tableBody.innerHTML = ""; // Limpia la tabla
+
+        data.forEach(item => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+                <td><input type="checkbox" class="param-checkbox" value="${item.id}" data-message="${item.message}"></td>
+                <td>${item.id}</td>
+                <td>${item.message}</td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+
+    } catch (error) {
+        console.error("Error al cargar parámetros:", error);
+    }
+}
+
 
 
 
@@ -48,19 +75,29 @@ function SaveData() {
     // Validación HTML5 manual
     if (!data.checkValidity()) {
         data.reportValidity(); // Muestra errores en pantalla
-        return; // Detiene el envío
+        return;
     }
 
     var form = new FormData(data);
+
+    // ✅ Agregar checkbox seleccionados
+    const selectedParams = document.querySelectorAll(".param-checkbox:checked");
+    selectedParams.forEach(checkbox => {
+        form.append("pages", checkbox.value);
+    });
+
+    
     fetch("UserType/SaveData", {
         method: "POST",
         body: form
     }).then(res => res.text())
         .then(res => {
-            console.log([...form.entries()]);
-             UserTypeList();
+            console.log("Respuesta del backend:", res);
+            UserTypeList();
         });
 }
+
+
 
 
 

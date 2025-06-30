@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Persistence.UserType;
+using Entity;
 
 namespace Web.Controllers
 {
@@ -14,6 +15,13 @@ namespace Web.Controllers
         {
             GetAll userType = new GetAll();
             return Json(userType.List());
+        }
+
+        public int SaveData(UserType userType, List<int> pages)
+        {
+            userType.idPage = pages;
+            Save function = new Save();
+            return function.SaveUserType(userType);
         }
     }
 }

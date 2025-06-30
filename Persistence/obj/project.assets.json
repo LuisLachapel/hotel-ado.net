@@ -4877,5 +4877,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\Cursos\\C sharp\\Proyecto Ado.Net\\Proyecto Hotel\\Persistence\\obj\\project.nuget.cache : Se ha especificado un dispositivo que no existe.\r\n"
+    }
+  ]
 }

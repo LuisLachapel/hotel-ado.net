@@ -39,7 +39,7 @@ namespace Persistence.UserType
                         result = command.ExecuteNonQuery();
                     }
 
-                    for(int index = 0; index <= userType.idPage.Count; index++)
+                    for(int index = 0; index < userType.idPage.Count; index++)
                     {
                         using (SqlCommand command = new SqlCommand("uspGuardarPaginasTipoUsuario", connection))
                         {

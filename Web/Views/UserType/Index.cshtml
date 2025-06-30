@@ -9,7 +9,7 @@
 <!--Formulario-->
 
 <fieldset class="container mb-4" style="border: 1px solid black;">
-  <legend style="font-size: 14px;">Datos de la persona</legend>
+  <legend style="font-size: 14px;">Datos de tipo usuario</legend>
 
   <form id="formUserType" method="post" enctype="multipart/form-data">
      <div class="row">
@@ -28,68 +28,22 @@
         </div>
 
 
-
-        <div class="row">
-            <!--Campo para precio y numero de personas-->
-            <div class="mb-3 col-md-6">
-               <label for="formPriceByNight" class="form-label">Precio por noche</label>
-               <input type="number" class="form-control" id="formPriceByNight" aria-describedby="" name="priceByNight">
-            </div>
-
-            <div class="mb-3 col-md-6">
-               <label for="formNumberOfPeople" class="form-label">Numero de personas</label>
-               <input type="number" class="form-control" id="formNumberOfPeople" aria-describedby="" name="numberOfPeople" inputmode="numeric", min="0">
-            </div>
-
+                <!-- Tabla de parámetros con checkbox -->
+        <div class="container mt-4">
+          <h5>Seleccionar Parámetros</h5>
+          <table class="table table-bordered" id="tablePageData">
+            <thead>
+              <tr>
+                <th>Seleccionar</th>
+                <th>ID</th>
+                <th>Mensaje</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Se llenará con JS -->
+            </tbody>
+          </table>
         </div>
-
-        <!-- Radio buttons -->
-    <div class="row">
-      <!-- Tiene piscina -->
-      <div class="mb-3 col-md-4">
-        <label class="form-label">Tiene Piscina</label>
-        <div class="d-flex gap-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasPool" id="RadioPoolYes" value="1">
-            <label class="form-check-label" for="RadioPoolYes">Si</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasPool" id="RadioPoolNo" value="0">
-            <label class="form-check-label" for="RadioPoolNo">No</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tiene vista al mar -->
-      <div class="mb-3 col-md-4">
-        <label class="form-label">Tiene vista al mar</label>
-        <div class="d-flex gap-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasSeaView" id="hasSeaViewYes" value="1">
-            <label class="form-check-label" for="hasSeaViewYes">Si</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasSeaView" id="hasSeaViewNo" value="0">
-            <label class="form-check-label" for="hasSeaViewNo">No</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tiene Wifi -->
-      <div class="mb-3 col-md-4">
-        <label class="form-label">Tiene Wifi</label>
-        <div class="d-flex gap-3">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasWifi" id="hasWifiYes" value="1">
-            <label class="form-check-label" for="hasWifiYes">Si</label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="hasWifi" id="hasWifiNo" value="0">
-            <label class="form-check-label" for="hasWifiNo">No</label>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
